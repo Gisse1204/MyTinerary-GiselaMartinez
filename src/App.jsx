@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-        <header>
-        <img className="logo" src="" alt="" />
-        <nav>
-          <ul>
+      <header>
+        <img className="logo" src="https://clipart-library.com/images_k/travel-clipart-transparent/travel-clipart-transparent-16.png" alt="" />
+        <h1>My Tinerary</h1>
+        <nav> 
+          <ul className="barra">
             <li><a href="">Home</a></li>
             <li><a href="">Cities</a></li>
-            <li><button href="">Login</button></li>
+            <li><button className='bg-mytin text-mytin w-28 h-10 rounded-lg'>Login</button></li>
           </ul>
         </nav>
       </header>
-      <main>
-        <section>
-          <h1>Título</h1>
+      <main className="d-flex flex-wrap-reverse justify-content-center">
+        <section className="main-content">
+          <h2>Find your perfect trip, designed by insiders who know and love their cities!</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button className='bg-mytin text-mytin w-28 h-10 rounded-lg' onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+          <button className='bg-mytin text-mytin w-28 h-10 rounded-lg cta-button' onClick={() => window.location.href = "/cities"}>
+            Explore Cities
+          </button>
         </section>
-        <img className="fondo" src="" alt="" />
+        <img className="fondo" src="http://www.portiktravel.com/wp-content/uploads/2013/02/services.png" alt="" />
       </main>
       <footer></footer>
-      </>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
