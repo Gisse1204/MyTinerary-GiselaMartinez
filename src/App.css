@@ -1,77 +1,14 @@
-/* * {
-  padding: 0;
-  margin: 0;
+* {
   box-sizing: border-box;
-} */
-
-/* #root{
-  max-width: 50vh;
-  margin: 0 auto;
-  padding: 2rem;
-  
-  background-color: gray;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
-header{
-  height: 20vh;
-  margin: 0 auto;
-  text-align: center;
-  background-color: rgb(38, 148, 148);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo{
-  height: 100%;
-  background-color: rgb(38, 148, 148);
-  display: flex;
-  align-items: center;
-}
-
-.barra{
-  display: flex;
-  justify-content: space-between;
+  margin: 0;
   padding: 0;
-  gap: 1em;
-  list-style: none;
-  flex-wrap: wrap;
 }
 
-.barra li {
-  margin: 0 10px;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-}
-
-.fondo {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-}
-
-/* Estilos para ajustar la posición del fondo en pantallas pequeñas */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column; /* Cambia el orden de aparición de los elementos en pantallas pequeñas */
-    align-items: center; /* Centra los elementos en pantallas pequeñas */
-  }
-
-  .fondo {
-    margin-top: 20px; /* Añade un espacio entre el contenido de texto y la imagen en pantallas pequeñas */
-  }
+body{
+  background: url(../public/Fondo.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
 }
