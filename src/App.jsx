@@ -1,21 +1,14 @@
-import './App.css';
-import MainContainer from './components/MainContainer';
-import Nav from './components/Nav';
-import Home from './pages/Home';
-Home
-MainContainer
+import React from 'react';
+import './App.css'
+import Home from './pages/Home'
+import MainLayout from './layouts/MainLayout';
 
 function App() {
 
   return (
-    <div className='w-full flex flex-col'>  
-      <Nav/>
-      <MainContainer/>
-      <main>
-
-      </main>
-
-      </div>
+    <MainLayout>
+        <Home/> 
+    </MainLayout>
   )
 }
 

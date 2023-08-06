@@ -1,20 +1,28 @@
-import React from 'react'
-import reactLogo from '../../public/Logo.png'
-React
-const Nav = () => {
-  return (
-    <header className='flex h-[15vh]'>
-        <h1>My Tinerary</h1>
-        <img className='w-[15vh]' src={reactLogo} alt="Logo"/>
-        <nav>
-            <ol>
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-            </ol>
-        </nav>
-    </header>
-  )
-}
+import React, { useState } from 'react';
+import MobileMenu from './MobileMenu';
 
-export default Nav
+const links = [
+  { value: '#', content: 'Home', id: 'Home' },
+  { value: '#', content: 'Cities', id: 'Cities' },
+  { value: '#', content: 'Login', id: 'Login' },
+];
+
+const Nav = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
+  const closeMobileMenu = () => {
+    setShowMobileMenu(false);
+  };
+
+  return (
+    <nav>
+      <MobileMenu links={links} show={showMobileMenu} toggleMenu={toggleMobileMenu} />
+    </nav>
+  );
+};
+
+export default Nav;
