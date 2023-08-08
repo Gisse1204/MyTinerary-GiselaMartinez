@@ -2,12 +2,10 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="absolute bottom-0 left-0 w-full h-[49px] bg-transparent text-center">
-      Footer
+    <footer className="bg-slate-800 bg-opacity-50 text-white">
+     Footer
     </footer>
   );
 };
 
 export default Footer;
-
-

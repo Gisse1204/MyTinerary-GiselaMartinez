@@ -5,9 +5,12 @@ React
 
 const MainLayout = ({children}) => {
   return (
-    <div className='flex flex-col justify-between w-full'>
+    <div className='flex flex-col justify-between'>
         <Header/>
-         {children}
+        <div className='z-50 relative'>
+        {children}
+      </div>
+        
 
     </div>
   )
