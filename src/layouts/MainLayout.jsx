@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Header from './../components/Header';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import Footer from './../components/Footer';
 
-React
+const MainLayout = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    if(location.pathname === '/') navigate('/home');
+  }, []);
 
-const MainLayout = ({children}) => {
   return (
     <div className='flex flex-col justify-between'>
-        <Header/>
-        <div className='z-50 relative'>
-        {children}
+      <Header />
+      <div>
+        <Outlet />
       </div>
-        
-
+      <Footer/>
     </div>
-  )
-}
+    
+  );
+};
 
-export default MainLayout
+export default MainLayout;

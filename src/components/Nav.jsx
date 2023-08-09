@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
-import MobileMenu from './MobileMenu';
+import React, { Fragment } from 'react';
+import LiAndAnchor from './LiAndAnchor';
 
-const links = [
-  { value: '#', content: 'Home', id: 'Home' },
-  { value: '#', content: 'Cities', id: 'Cities' },
-  { value: '#', content: 'Login', id: 'Login' },
-];
-
-const Nav = () => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu);
-  };
-
-  const closeMobileMenu = () => {
-    setShowMobileMenu(false);
-  };
-
+const Nav = ({ links, menuOpen }) => {
   return (
-    <nav>
-      <MobileMenu links={links} show={showMobileMenu} toggleMenu={toggleMobileMenu} />
+    <nav className={`sm:flex ${menuOpen ? 'block' : 'hidden'} sm:mt-0 mt-4`}>
+      <ul className='sm:flex gap-6'>
+        {links.map((link, indice) => {
+          return (
+            <Fragment key={indice}>
+              <LiAndAnchor
+                value={link.value}
+                active={link.active}
+                content={link.content}
+              />
+            </Fragment>
+          );
+        })}
+      </ul>
     </nav>
   );
 };

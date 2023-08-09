@@ -1,10 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const LiAndAnchor = ({ value, content, children, style }) => {
+const LiAndAnchor = (props) => {
+  const { value, content, active } = props;
+
   return (
-    <button style={style} className='text-white bg-[rgba(0,0,0,0.5)] rounded-lg p-2' href={value}>
-      {children ? children : content}
-    </button>
+    <li>
+      <Link
+        className={`text-xl text-gray-300 hover:text-orange-300 transition-all duration-500`}
+        style={active ? { color: 'white' } : {}}
+        to={value}
+      >
+        {content === 'Login' && (
+          <span className="flex items-center">
+            <img src="/public/icono.png" alt="User Icon" className="w-6 h-6 inline-block mr-1" />
+            {content}
+          </span>
+        )}
+        {content !== 'Login' && content}
+      </Link>
+    </li>
   );
 };
 
