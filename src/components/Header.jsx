@@ -13,16 +13,16 @@ const Header = () => {
   return (
     <header className='flex h-[20vh] items-center px-5 justify-between bg-slate-800 bg-opacity-50 sm:h-[11vh]'>
       <section className='flex justify-between items-center w-full'>
-        <div className='flex items-center'>
+        <div className='flex items-center capitalize sm:uppercase'>
           <h1
-            className='font-semibold sm:text-xl lg:text-2xl'
+            className='font-semibold sm:text-xl lg:text-2xl text-orange-400'
             style={{
             textShadow:
-              '0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 255, 255, 1)',
+              '0 0 10px rgba(0, 0, 0, 1), 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1)',
             animation: 'shine 2s linear infinite',
           }}
           >
-            My Tinerary
+            <em>My Tinerary</em>
           </h1>
           <Logo />
         </div>
