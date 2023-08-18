@@ -8,7 +8,7 @@ const MainLayout = () => {
   const location = useLocation();
   useEffect(() => {
     if(location.pathname === '/') navigate('/home');
-  }, []);
+  });
 
   return (
     <div className='flex flex-col justify-between'>
@@ -16,9 +16,8 @@ const MainLayout = () => {
       <div>
         <Outlet />
       </div>
-      <Footer/>
-    </div>
-    
+       <Footer/>   
+    </div>       
   );
 };
 
