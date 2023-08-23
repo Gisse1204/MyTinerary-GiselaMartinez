@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CardCities = ({ data }) => {
-    const { name, country, description, image, currency } = data;
+    const { name, country, description, image, currency, _id } = data;
+    console.log(_id)
 
     return (
         <div className="card w-80 border-secondary pt-3 col-10 col-md-5 col-xl-3" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -12,7 +13,7 @@ const CardCities = ({ data }) => {
                     <p className="card-text">Country: {country}</p>
                     <p className="card-text">Description: {description}</p>
                     <p className="card-text">Currency: {currency}</p>
-                <Link to="/details" className="btn btn-secondary text-orange-400 col-4 align-self-center">Details</Link>
+                    <Link to={`/cities/${_id}`} className="btn btn-secondary text-orange-400 col-4 align-self-center">Details</Link>
             </div>
         </div>
     );

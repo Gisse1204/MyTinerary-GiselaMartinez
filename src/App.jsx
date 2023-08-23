@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import MainLayout from './layouts/MainLayout';
 import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Cities from './pages/Cities';
+import DetailCity from './pages/DetailCity';
 import Componente404 from './pages/Componente404';
 
 const router = createBrowserRouter([
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/cities/:id',
-        element: <Cities/>
+        element: <DetailCity />,
       },
       {
         path:'*',

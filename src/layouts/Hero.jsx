@@ -1,7 +1,5 @@
 import React from 'react'
 
-React
-
 const Hero = ({children}) => {
   return (
     <main className='flex items-center justify-center mb-[49px]'>

@@ -10,7 +10,6 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  min-height: 100vh;
 }
 
 .fixed-menu {
@@ -19,13 +18,24 @@ body{
   left: 0;
 }
 
+@keyframes blink {
+  0%, 100% {
+    color: rgb(223, 64, 15); /* Color original */
+  }
+  50% {
+    color: rgb(226, 132, 132); /* Color más brillante */
+  }
+}
 
+@keyframes pulsate {
+  0%, 100% {
+    font-size: 1em; /* Tamaño de fuente original */
+  }
+  50% {
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+  }
+}
 
 footer {
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 49px;
-  background-color: transparent;
-  text-align: center;
 }
