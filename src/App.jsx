@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css'
-import Home from './pages/Home'
+import './App.css';
+import Home from './pages/Home';
 import MainLayout from './layouts/MainLayout';
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Cities from './pages/Cities';
 import DetailCity from './pages/DetailCity';
 import Componente404 from './pages/Componente404';
@@ -10,34 +10,32 @@ import Componente404 from './pages/Componente404';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout/> ,
+    element: <MainLayout />,
     children: [
       {
         path: '/home',
-        element: <Home/>
+        element: <Home />,
       },
       {
         path: '/cities',
-        element: <Cities/>
+        element: <Cities />,
       },
       {
         path: '/cities/:id',
         element: <DetailCity />,
       },
       {
-        path:'*',
-        element: <Componente404/>
-      }
-    ]
+        path: '*',
+        element: <Componente404 />,
+      },
+    ],
   },
- 
-])
+]);
 
 function App() {
-
   return (
-    <RouterProvider router={router}/> 
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;

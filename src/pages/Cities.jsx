@@ -1,44 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import CardCities from './../components/CardCities';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllCities } from '../actions/cityActions';
+import CardCities from '../components/CardCities';
+import Search from '../components/Search.jsx';
+import { createSelector } from 'reselect';
 import Footer from '../components/Footer';
 
-const Cities = () => {
-  const params = useParams();
-  console.log(params);
+const getCities = (state) => state.city.cities;
+const getSearchTerm = (state) => state.city.searchTerm;
 
-  const [cities, setCities] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+const getFilteredCities = createSelector(
+  [getCities, getSearchTerm],
+  (cities, searchTerm) => {
+    return cities.filter((city) =>
+      city.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+);
+
+const Cities = () => {
+  const dispatch = useDispatch();
+  const cities = useSelector(getFilteredCities);
 
   useEffect(() => {
-    axios('http://localhost:1212/api/cities')
-      .then((res) => {
-        const filteredCities = res.data.response.filter((city) =>
-          city.name.toLowerCase().startsWith(searchTerm.toLowerCase().trim())
-        );
-        setCities(filteredCities);
-      })
-      .catch((error) => {
-        console.error('Error fetching cities:', error);
-      });
-  }, [searchTerm]);
+    dispatch(getAllCities());
+  }, [dispatch]);
+
 
   return (
     <div className='p-10 w-full h-screen flex flex-col items-center bg-center bg-cover'>
-      <div className='flex flex-col mb-4 p-2'>
-        <input
-          type='text'
-          placeholder='Search cities...'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className='mb-4 p-2 border rounded'
-        />
-      </div>
+      <Search />
       <div className='flex flex-wrap justify-evenly'>
         {cities.length === 0 ? (
           <p className='card-body bg-orange-700 text-white rounded-md opacity-80 text-center'>
-            No cities matching the search were found</p>
+            No cities matching the search were found
+          </p>
         ) : (
           cities.map((city) => (
             <div key={city._id} className='flex flex-wrap'>
@@ -47,9 +43,11 @@ const Cities = () => {
           ))
         )}
       </div>
-      <div className="container mx-auto" style={{ lineHeight: '49px' }}><Footer/></div>    
+      <div className='container mx-auto' style={{ lineHeight: '49px' }}>
+        <Footer />
+      </div>
     </div>
   );
 };
 
-export default Cities;
+export default Cities
