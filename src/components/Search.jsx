@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { findCities } from '../actions/cityActions';
+import { updateSearchTerm } from '../actions/cityActions';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
 
   const handleSearch = (event) => {
-  const value = event.target.value.trim();
+    const value = event.target.value.trim().toLowerCase();
     setSearchTerm(value);
-    dispatch(findCities({ target: { value, id: 'name' } }));
+    dispatch(updateSearchTerm(value));
   };
 
   return (

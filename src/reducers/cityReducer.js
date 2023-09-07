@@ -12,7 +12,8 @@ const cityReducer = (state = initialState, action) => {
     case 'ALL_CITIES':
       return {
         ...state,
-        allCities: action.payload.cities,
+        cities: action.payload.cities,
+        error: action.payload.error,
       };
 
     case 'FIND_CITIES':

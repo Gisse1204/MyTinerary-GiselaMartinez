@@ -21,13 +21,16 @@ export const getAllCities = () => (dispatch, getState) => {
 };
 
 export const findCities = (event) => (dispatch, getState) => {
-    //console.log('event.target.value:', event.target.value);
-    //console.log('event.target.id:', event.target.id);
+  const searchTerm = event.target.value.toLowerCase().trim();
+  if (searchTerm === '') {
+    dispatch(getAllCities()); 
+  } else {
     dispatch({
       type: FIND_CITIES,
-      payload: { initialValue: event.target.value.toLowerCase().trim(), search: event.target.id },
+      payload: { initialValue: searchTerm, search: event.target.id },
     });
-  };
+  }
+};
 
 export const findCity = (id) => (dispatch, getState) => {
   axios
