@@ -11,13 +11,14 @@ const LiAndAnchor = (props) => {
         style={active ? { color: 'white' } : {}}
         to={value}
       >
-        {content === 'Login' && (
+        {content === 'Sign In' && (
           <span className="flex items-center">
             <img src="/public/icono.png" alt="User Icon" className="w-6 h-6 inline-block mr-1" />
             {content}
           </span>
         )}
-        {content !== 'Login' && content}
+        {content !== 'Sign In' && content}
+        
       </Link>
     </li>
   );

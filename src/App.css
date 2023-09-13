@@ -36,6 +36,49 @@ body{
   }
 }
 
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: all 0.3s;
+  fill: #666;
+}
+
+svg:hover {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+.container input:checked ~ svg {
+  fill: #2196F3;
+}
+
+/* Estilo personalizado para el cuadro de diálogo */
+.custom-sweetalert-popup {
+  width: 300px; /* Ancho personalizado */
+  background: #ebe8e2; /* Fondo del cuadro de diálogo */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 footer {
   width: 100%;
 }
+

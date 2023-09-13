@@ -16,7 +16,7 @@ const Home = () => {
       WebkitTextStroke: '1px rgba(0, 0, 0, 1)',
       textDecoration: 'underline transparent',
       padding: '5px',
-      position: 'relative' // Añadido para posicionar el elemento relativo
+      position: 'relative'
     }}>
       Find your <span className="text-red-400" style={{
     textShadow: '0 0 50px rgba(0, 0, 0, 1), 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1)',
